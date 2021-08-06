@@ -1,13 +1,13 @@
 const workoutTypeSelect = document.querySelector("#type");
 const cardioForm = document.querySelector(".cardio-form");
-const resistanceForm = document.querySelector(".resistance-form");
+const resistanceForm = document.querySelector(".Resistance-form");
 const cardioNameInput = document.querySelector("#cardio-name");
 const nameInput = document.querySelector("#name");
 const weightInput = document.querySelector("#weight");
 const setsInput = document.querySelector("#sets");
 const repsInput = document.querySelector("#reps");
 const durationInput = document.querySelector("#duration");
-const resistanceDurationInput = document.querySelector("#resistance-duration");
+const resistanceDurationInput = document.querySelector("#Resistance-duration");
 const distanceInput = document.querySelector("#distance");
 const completeButton = document.querySelector("button.complete");
 const addButton = document.querySelector("button.add-another");
@@ -27,7 +27,6 @@ async function initExercise() {
   if (workout) {
     location.search = "?id=" + workout._id;
   }
-
 }
 
 initExercise();
@@ -38,7 +37,7 @@ function handleWorkoutTypeChange(event) {
   if (workoutType === "cardio") {
     cardioForm.classList.remove("d-none");
     resistanceForm.classList.add("d-none");
-  } else if (workoutType === "resistance") {
+  } else if (workoutType === "Resistance") {
     resistanceForm.classList.remove("d-none");
     cardioForm.classList.add("d-none");
   } else {
@@ -52,7 +51,7 @@ function handleWorkoutTypeChange(event) {
 function validateInputs() {
   let isValid = true;
 
-  if (workoutType === "resistance") {
+  if (workoutType === "Resistance") {
     if (nameInput.value.trim() === "") {
       isValid = false;
     }
@@ -72,7 +71,7 @@ function validateInputs() {
     if (resistanceDurationInput.value.trim() === "") {
       isValid = false;
     }
-  } else if (workoutType === "cardio") {
+  } else if (workoutType === "Cardio") {
     if (cardioNameInput.value.trim() === "") {
       isValid = false;
     }
@@ -100,13 +99,13 @@ async function handleFormSubmit(event) {
 
   let workoutData = {};
 
-  if (workoutType === "cardio") {
-    workoutData.type = "cardio";
+  if (workoutType === "Cardio") {
+    workoutData.type = "Cardio";
     workoutData.name = cardioNameInput.value.trim();
     workoutData.distance = Number(distanceInput.value.trim());
     workoutData.duration = Number(durationInput.value.trim());
-  } else if (workoutType === "resistance") {
-    workoutData.type = "resistance";
+  } else if (workoutType === "Resistance") {
+    workoutData.type = "Resistance";
     workoutData.name = nameInput.value.trim();
     workoutData.weight = Number(weightInput.value.trim());
     workoutData.sets = Number(setsInput.value.trim());
@@ -140,6 +139,7 @@ function clearInputs() {
 if (workoutTypeSelect) {
   workoutTypeSelect.addEventListener("change", handleWorkoutTypeChange);
 }
+
 if (completeButton) {
   completeButton.addEventListener("click", function (event) {
     shouldNavigateAway = true;

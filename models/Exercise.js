@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const ExerciseSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: "Please enter an exercise type."
   },
   type: {
     type: String,

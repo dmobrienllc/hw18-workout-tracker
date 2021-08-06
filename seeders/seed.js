@@ -10,7 +10,6 @@ mongoose.connect("mongodb://localhost/exercisetrackerdb",config);
 
 const workoutSeed = [
   {
-    name:'Bicep Day',
     day: new Date(new Date().setDate(new Date().getDate() - 9)),
     exercises: [
       {
@@ -24,7 +23,6 @@ const workoutSeed = [
     ],
   },
   {
-    name:'Uphill Intervals',
     day: new Date(new Date().setDate(new Date().getDate() - 8)),
     exercises: [
       {
@@ -36,7 +34,6 @@ const workoutSeed = [
     ],
   },
   {
-    name:'Circuit Training',
     day: new Date(new Date().setDate(new Date().getDate() - 7)),
     exercises: [
       {
@@ -58,7 +55,6 @@ const workoutSeed = [
     ],
   },
   {
-    name:'Cardio Cruise',
     day: new Date(new Date().setDate(new Date().getDate() - 6)),
     exercises: [
       {
@@ -70,7 +66,6 @@ const workoutSeed = [
     ],
   },
   {
-    name: 'Bench Day',
     day: new Date(new Date().setDate(new Date().getDate() - 5)),
     exercises: [
       {
@@ -84,7 +79,6 @@ const workoutSeed = [
     ],
   },
   {
-    name:'Leg Day',
     day: new Date(new Date().setDate(new Date().getDate() - 4)),
     exercises: [
       {
@@ -98,7 +92,6 @@ const workoutSeed = [
     ],
   },
   {
-    name:'Cardio Cruise',
     day: new Date(new Date().setDate(new Date().getDate() - 3)),
     exercises: [
       {
@@ -110,7 +103,6 @@ const workoutSeed = [
     ],
   },
   {
-    name: 'Bench Day',
     day: new Date(new Date().setDate(new Date().getDate() - 2)),
     exercises: [
       {
@@ -124,7 +116,6 @@ const workoutSeed = [
     ],
   },
   {
-    name:'Uphill Intervals',
     day: new Date(new Date().setDate(new Date().getDate() - 1)),
     exercises: [
       {
@@ -147,3 +138,26 @@ db.Workout.deleteMany({})
     console.error(err);
     process.exit(1);
   });
+
+
+// db.Workout.deleteMany({})
+//   .db.Exercise.deleteMany({})
+//   .catch((err) => {
+//     console.error(err);
+//     process.exit(1);
+//   });
+
+// try{
+//   for(let i=0;i<workoutSeed.length;i++){
+//     db.Workout.create(workoutSeed[i])
+//     .then( ({_id}) => db.Category.findOneAndUpdate({'_id': _id}, { $push: { transactions: _id } }, { new: true }) )
+//     .then( updatedCategory => res.json({ result: "success", payload: updatedCategory }))
+//   }
+// }
+// catch(err){
+//   console.log(err);
+// }
+
+
+
+
